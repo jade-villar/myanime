@@ -1,0 +1,66 @@
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 200;
+
+  display: grid;
+  place-content: center;
+  padding: 1rem;
+
+  background-color: var(--color-surface-transparent);
+  backdrop-filter: blur(10px);
+}
+
+.modal__wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  width: auto;
+  padding: 4rem;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-primary);
+}
+
+.modal__fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.modal__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.modal__label {
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.modal__select {
+  height: 46px;
+  border: 1px solid var(--color-primary);
+  outline: none;
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: inherit;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.modal__actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.modal__btn {
+  height: 46px;
+  padding: 0 2rem;
+  flex: 1;
+}

@@ -1,0 +1,23 @@
+.search-page {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+
+  padding: 170px 1rem 200px;
+
+  max-width: calc(1100px + 2rem);
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+.search-results {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+@media screen and (min-width: 768px) {
+  .search-page {
+    padding: 180px 1rem 200px;
+  }
+}

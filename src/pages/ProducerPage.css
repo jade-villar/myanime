@@ -1,0 +1,43 @@
+.producer-page {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+
+  padding: 150px 1rem 200px;
+
+  max-width: calc(1100px + 2rem);
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+.producer {
+  display: flex;
+  align-items: end;
+  gap: 1.75rem;
+}
+
+.producer__brand {
+  width: 100px;
+  aspect-ratio: calc(1/1);
+}
+
+.producer__brand-image {
+  background-color: var(--color-primary);
+}
+
+.producer__name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: start;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.producer-titles {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}

@@ -1,0 +1,55 @@
+.home-page {
+  display: flex;
+  flex-direction: column;
+  gap: 10rem;
+
+  padding: 170px 1rem 200px;
+
+  max-width: calc(1100px + 2rem);
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+.home-page__bg {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.home-page__bg-image {
+  object-position: left;
+}
+
+.home-page__bg::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  background: var(--gradient-page-bg);
+}
+
+.home-page__content {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+
+  animation-name: fade;
+  animation-duration: 0.8s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  animation-delay: 0.45s;
+  opacity: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .home-page {
+    gap: 8rem;
+  }
+}

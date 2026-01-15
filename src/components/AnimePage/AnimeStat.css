@@ -1,0 +1,46 @@
+.anime-stat {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.anime-stat__label {
+  font-weight: 700;
+}
+
+.anime-stat__value {
+  color: var(--color-text-muted-1);
+  text-align: end;
+}
+
+.anime-stat__values {
+  text-align: end;
+  display: flex;
+  flex-direction: column;
+}
+
+.anime-stat__link {
+  color: var(--color-text-muted-1);
+  text-decoration: underline;
+}
+
+.anime-stat__link:hover,
+.anime-stat__link:focus-visible {
+  color: var(--color-secondary);
+}
+
+.anime-stat__link:active {
+  filter: var(--filter-brightness-active);
+}
+
+@media screen and (min-width: 768px) {
+  .anime-stat {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .anime-stat__value,
+  .anime-stat__values {
+    text-align: start;
+  }
+}

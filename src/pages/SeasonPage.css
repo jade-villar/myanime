@@ -1,0 +1,18 @@
+.season-page {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+
+  padding: 150px 1rem 200px;
+
+  max-width: calc(1100px + 2rem);
+  min-height: 100vh;
+  margin: 0 auto;
+
+  animation-name: fadeUp;
+  animation-duration: 0.5s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  animation-delay: 0.15s;
+  opacity: 0;
+}

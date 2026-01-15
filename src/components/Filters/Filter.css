@@ -1,0 +1,29 @@
+.filter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filter__label {
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+
+}
+
+.filter__select {
+  height: 40px;
+  min-width: 248px;
+  font-family: inherit;
+  font-size: 0.7rem;
+  color: var(--color-text-muted-1);
+  background-color: var(--color-surface-solid);
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.filter__select option {
+  background-color: var(--color-surface-solid);
+  padding: 0 0.25rem;
+}

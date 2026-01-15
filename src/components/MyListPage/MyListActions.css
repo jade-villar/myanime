@@ -1,0 +1,124 @@
+.my-list-actions {
+  /* display: flex;
+  gap: 0.6rem;
+  padding-bottom: 1rem; */
+
+  display: none;
+}
+
+.my-list-actions__btn {
+  background-color: transparent;
+  border: 1px solid var(--color-primary);
+  color: var(--color-text-primary);
+  height: auto;
+  padding: 0.4rem 1rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+.my-list-actions__btn:active {
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+
+  .my-list-actions__score-icon {
+    filter: invert(95%);
+  }
+}
+
+.my-list-actions__btn--score {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.my-list-actions__score-icon {
+  filter: invert(5%);
+  width: 10px;
+  height: 10px;
+  margin-bottom: 1px;
+  transition: var(--transition-fast);
+}
+
+.my-list-actions__btn--status-watching {
+  border-color: var(--status-watching);
+  color: var(--status-watching);
+}
+
+.my-list-actions__btn--status-watching:active {
+  background-color: var(--status-watching);
+  color: var(--color-bg);
+}
+
+.my-list-actions__btn--status-completed {
+  border-color: var(--status-completed);
+  color: var(--status-completed);
+}
+
+.my-list-actions__btn--status-completed:active {
+  background-color: var(--status-completed);
+  color: var(--color-bg);
+}
+
+.my-list-actions__btn--status-on-hold {
+  border-color: var(--status-on-hold);
+  color: var(--status-on-hold);
+}
+
+.my-list-actions__btn--status-on-hold:active {
+  background-color: var(--status-on-hold);
+  color: var(--color-bg);
+}
+
+.my-list-actions__btn--status-dropped {
+  border-color: var(--status-dropped);
+  color: var(--status-dropped);
+}
+
+.my-list-actions__btn--status-dropped:active {
+  background-color: var(--status-dropped);
+  color: var(--color-bg);
+}
+
+@media (hover: hover) {
+  .my-list-actions__btn:hover,
+  .my-list-actions__btn:focus-visible {
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+
+    .my-list-actions__score-icon {
+      filter: invert(95%);
+    }
+  }
+
+  .my-list-actions__btn--status-watching:hover,
+  .my-list-actions__btn--status-watching:focus-visible {
+    background-color: var(--status-watching);
+    color: var(--color-bg);
+  }
+
+  .my-list-actions__btn--status-completed:hover,
+  .my-list-actions__btn--status-completed:focus-visible {
+    background-color: var(--status-completed);
+    color: var(--color-bg);
+  }
+
+  .my-list-actions__btn--status-on-hold:hover,
+  .my-list-actions__btn--status-on-hold:focus-visible {
+    background-color: var(--status-on-hold);
+    color: var(--color-bg);
+  }
+
+  .my-list-actions__btn--status-dropped:hover,
+  .my-list-actions__btn--status-dropped:focus-visible {
+    background-color: var(--status-dropped);
+    color: var(--color-bg);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .my-list-actions {
+    display: flex;
+    gap: 0.6rem;
+    padding-bottom: 1rem;
+  }
+}

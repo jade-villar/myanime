@@ -1,0 +1,44 @@
+.anime-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem 1.75rem;
+
+  animation-name: fade;
+  animation-duration: 0.5s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+.anime-grid--home .anime-card:nth-child(n + 7) {
+  display: none;
+}
+
+.anime-grid__empty {
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--color-text-muted-3);
+  padding-top: 5rem;
+  padding-bottom: 4rem;
+}
+
+@media screen and (min-width: 768px) {
+  .anime-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4rem 1.75rem;
+  }
+
+  .anime-grid--home .anime-card:nth-child(n + 5) {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .anime-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 4rem 2.25rem;
+  }
+
+  .anime-grid--home .anime-card:nth-child(5) {
+    display: block;
+  }
+}

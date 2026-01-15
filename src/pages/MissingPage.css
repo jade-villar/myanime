@@ -1,0 +1,15 @@
+.missing-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+
+  max-width: calc(1100px + 2rem);
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+.missing-page__message {
+  color: var(--color-text-muted-3);
+}

@@ -1,0 +1,41 @@
+.anime-page {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+
+  padding: 120px 1rem 200px;
+
+  max-width: calc(1100px + 2rem);
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+.anime-page__bg {
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.anime-page__bg-image {
+  object-position: left;
+}
+
+.anime-page__bg::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  background: var(--gradient-page-bg);
+}
+
+@media screen and (min-width: 768px) {
+  .anime-page {
+    padding: 150px 1rem 200px;
+  }
+}

@@ -1,0 +1,71 @@
+.my-list-update {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  flex-wrap: wrap;
+}
+
+.my-list-update__meta {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.my-list-update__div {
+  background-color: transparent;
+  border: 1px solid var(--color-primary);
+  color: var(--color-text-primary);
+  padding: 0.2rem 0.5rem;
+  font-size: 0.55rem;
+  font-weight: 500;
+}
+
+.my-list-update__div--score {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.my-list-update__score-icon {
+  filter: invert(5%);
+  width: 8px;
+  height: 8px;
+  margin-bottom: 1px;
+}
+
+.my-list-update__div--status-watching {
+  border-color: var(--status-watching);
+  color: var(--status-watching);
+}
+
+.my-list-update__div--status-completed {
+  border-color: var(--status-completed);
+  color: var(--status-completed);
+}
+
+.my-list-update__div--status-on-hold {
+  border-color: var(--status-on-hold);
+  color: var(--status-on-hold);
+}
+
+.my-list-update__div--status-dropped {
+  border-color: var(--status-dropped);
+  color: var(--status-dropped);
+}
+
+.my-list-update__remove {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--error);
+}
+
+.my-list-update__remove:active {
+  filter: var(--filter-brightness-active);
+}
+
+@media (hover: hover) {
+  .my-list-update__remove:hover,
+  .my-list-update__remove:focus-visible {
+    filter: brightness(120%);
+  }
+}

@@ -1,0 +1,9 @@
+.anime-page__actions {
+  display: flex;
+  gap: 0.7rem;
+}
+
+.anime-page__action-icon {
+  width: 14px;
+  height: 14px;
+}

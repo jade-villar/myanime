@@ -1,0 +1,59 @@
+.anime-page__body {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0 1.5rem;
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.anime-page__empty {
+  color: var(--color-text-muted-3);
+  font-size: 0.75rem;
+}
+
+@media screen and (min-width: 768px) {
+  .anime-page__body {
+    grid-template-columns: 210px 1fr;
+  }
+
+  .my-list-actions {
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+
+  .anime-page__synopsis {
+    grid-column: 2/3;
+    grid-row: auto;
+  }
+
+  .anime-page__stats {
+    grid-column: 1/2;
+    grid-row: 1/50;
+  }
+
+  .anime-page__stats-group {
+    gap: 1.25rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .anime-page__trailer {
+    grid-column: 2/3;
+    grid-row: auto;
+  }
+
+  .anime-relations {
+    grid-column: 2/3;
+    grid-row: auto;
+  }
+
+  .anime-recommendations {
+    grid-column: 2/3;
+    grid-row: auto;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .anime-page__body {
+    grid-template-columns: 240px 1fr;
+  }
+}

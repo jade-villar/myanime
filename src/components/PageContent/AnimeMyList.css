@@ -1,0 +1,30 @@
+.anime-my-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+
+  animation-name: fade;
+  animation-duration: 0.5s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+.anime-my-list__empty {
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--color-text-muted-3);
+  padding-top: 5rem;
+  padding-bottom: 4rem;
+}
+
+@media screen and (min-width: 768px) {
+  .anime-my-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .anime-my-list {
+    gap: 2.25rem;
+  }
+}

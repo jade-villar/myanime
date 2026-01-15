@@ -1,0 +1,11 @@
+.anime-page__trailer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-bottom: 3.5rem;
+}
+
+.anime-page__trailer-vid {
+  aspect-ratio: calc(16 / 9);
+  border: none;
+}

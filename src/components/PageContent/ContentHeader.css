@@ -1,0 +1,79 @@
+.content-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.content-header__main {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 1rem;
+}
+
+.content-header__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.content-header__title--small {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.content-header__link {
+  font-size: 0.8rem;
+  transition: var(--transition-fast);
+}
+
+.content-header__link:active {
+  color: var(--color-secondary);
+  filter: var(--filter-brightness-active);
+}
+
+.content-header__filter-btn {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  display: grid;
+  place-content: center;
+  background-color: var(--color-surface-solid);
+}
+
+.content-header__filter-btn:active {
+  background-color: var(--color-border);
+  filter: var(--filter-brightness-active);
+}
+
+.content-header__filter-icon {
+  width: 16px;
+  height: 16px;
+  filter: invert(5%);
+}
+
+.content-header__filters {
+  display: flex;
+  gap: 1.75rem;
+  overflow: scroll;
+  margin: 0 -1rem;
+  padding: 0 1rem;
+  scrollbar-width: none;
+}
+
+@media screen and (min-width: 1024px) {
+  .content-header__filters {
+    gap: 2.25rem;
+  }
+}
+
+@media (hover: hover) {
+  .content-header__link:hover,
+  .content-header__link:focus-visible {
+    color: var(--color-secondary);
+  }
+
+  .content-header__filter-btn:hover,
+  .content-header__filter-btn:focus-visible {
+    background-color: var(--color-border);
+  }
+}

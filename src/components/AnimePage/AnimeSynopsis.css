@@ -1,0 +1,14 @@
+.anime-page__synopsis {
+  padding-bottom: 3rem;
+}
+
+.anime-page__synopsis-p {
+  font-size: 0.75rem;
+  text-align: justify;
+}
+
+@media screen and (min-width: 576px) {
+  .anime-page__synopsis-p {
+    font-size: 0.8rem;
+  }
+}

@@ -1,0 +1,41 @@
+.loading-anime-titles {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.loading-anime-title__english {
+  width: 340px;
+  height: 50px;
+  background-color: var(--color-surface-transparent);
+  backdrop-filter: blur(10px);
+}
+
+.loading-anime-title__default {
+  width: 150px;
+  height: 16px;
+  background-color: var(--color-surface-transparent);
+  backdrop-filter: blur(10px);
+
+  display: none;
+}
+
+@media screen and (min-width: 576px) {
+  .loading-anime-titles {
+    align-items: start;
+  }
+
+  .loading-anime-title__default {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .loading-anime-title__english {
+    width: 550px;
+  }
+
+  .loading-anime-title__default {
+    width: 300px;
+  }
+}

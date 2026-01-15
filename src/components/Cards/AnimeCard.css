@@ -1,0 +1,86 @@
+.anime-card {
+  cursor: pointer;
+}
+
+.anime-card:active {
+  .anime-card__title {
+    color: var(--color-secondary);
+    filter: var(--filter-brightness-active);
+  }
+}
+
+.anime-card__link {
+  display: grid;
+  gap: 1rem;
+}
+
+.anime-card__poster {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: calc(5/7);
+  transition: var(--transition-fast);
+}
+
+.anime-card__poster-image {
+  transition: var(--transition-fast);
+}
+
+.anime-card__title {
+  font-weight: 500;
+  font-size: 0.7rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: var(--transition-fast);
+}
+
+.anime-card__score,
+.anime-card__favorites {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface-transparent);
+  backdrop-filter: blur(10px);
+  transition: var(--transition-fast);
+
+  opacity: 0;
+}
+
+.anime-card__score-count,
+.anime-card__favorites-count {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.anime-card__score-label,
+.anime-card__favorites-label {
+  font-size: 0.7rem;
+}
+
+@media (hover: hover) {
+  .anime-card:hover,
+  .anime-card:focus-visible {
+    .anime-card__poster {
+      transform: var(--transform-translate-y-hover);
+    }
+
+    .anime-card__score,
+    .anime-card__favorites {
+      opacity: 1;
+    }
+
+    .anime-card__title {
+      color: var(--color-secondary);
+    }
+  }
+}

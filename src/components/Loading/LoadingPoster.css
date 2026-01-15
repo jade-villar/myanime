@@ -1,0 +1,11 @@
+.loading-anime-poster {
+  width: 210px;
+  aspect-ratio: calc(5 / 7);
+  background-color: var(--color-primary);
+}
+
+@media screen and (min-width: 1024px) {
+  .loading-anime-poster {
+    width: 240px;
+  }
+}
