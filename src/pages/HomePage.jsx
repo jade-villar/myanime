@@ -2,17 +2,14 @@ import Hero from "../components/HomePage/Hero";
 import ContentHeader from "../components/PageContent/ContentHeader";
 import AnimeGrid from "../components/PageContent/AnimeGrid";
 import LoadingGrid from "../components/Loading/LoadingGrid";
+import Toast from "../components/Toast/Toast";
 import "./HomePage.css";
 
-function HomePage({ topRatedAnimes, airingAnimes, seasonAnimes, topPopularAnimes, 
-  isLoadingTopRated, isLoadingAiring, isLoadingSeason, isLoadingTopPopular,
+function HomePage({ topRatedAnimes, airingAnimes, seasonAnimes, topPopularAnimes, isLoadingTopRated, 
+  isLoadingAiring, isLoadingSeason, isLoadingTopPopular, toast,
 }) {
   return (
     <main className="home-page">
-      <section className="home-page__bg">
-        <img className="home-page__bg-image" src="/myanime-bg.jpg" />
-      </section>
-
       <Hero />
 
       <section className="home-page__content">
@@ -34,6 +31,10 @@ function HomePage({ topRatedAnimes, airingAnimes, seasonAnimes, topPopularAnimes
         <ContentHeader title="Popular All Time" link="/popular" />
         {isLoadingTopPopular ? <LoadingGrid /> : <AnimeGrid items={topPopularAnimes?.data} />}
       </section>
+
+      <section className="home-page__bg"></section>
+
+      {toast && <Toast message={toast.message} />}
     </main>
   );
 }

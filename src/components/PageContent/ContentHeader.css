@@ -5,15 +5,19 @@
 }
 
 .content-header__main {
-  display: flex;
+  display: grid;
+  grid-auto-flow: column;
   justify-content: space-between;
-  align-items: end;
+  align-items: center;
   gap: 1rem;
 }
 
 .content-header__title {
   font-size: 1.5rem;
   font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .content-header__title--small {

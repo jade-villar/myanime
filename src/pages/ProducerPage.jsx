@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { getProducer, getProducerAnimes } from "../services/jikan";
+import { useToast } from "../hooks/useToast";
 import ContentHeader from "../components/PageContent/ContentHeader";
 import AnimeGrid from "../components/PageContent/AnimeGrid";
 import Pagination from "../components/PageContent/Pagination";
@@ -9,6 +10,8 @@ import GenreFilter from "../components/Filters/GenreFilter";
 import OrderByFilter from "../components/Filters/OrderByFilter";
 import SortFilter from "../components/Filters/SortFilter";
 import LoadingGrid from "../components/Loading/LoadingGrid";
+import Toast from "../components/Toast/Toast";
+import handleError from "../utils/handleError";
 import "./ProducerPage.css";
 
 function ProducerPage({ setSearchParams, type, genre, orderBy, sort, page }) {
@@ -16,6 +19,8 @@ function ProducerPage({ setSearchParams, type, genre, orderBy, sort, page }) {
   const [producer, setProducer] = useState(null);
   const [producerAnimes, setProducerAnimes] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  const { toast, showToast } = useToast();
 
   useEffect(() => {
     async function load() {
@@ -25,11 +30,12 @@ function ProducerPage({ setSearchParams, type, genre, orderBy, sort, page }) {
         setProducer(response);
       } catch (err) {
         console.log(err);
+        handleError(err, showToast);
       }
     }
 
     load();
-  }, [id]);
+  }, [id, showToast]);
 
   useEffect(() => {
     async function load() {
@@ -40,13 +46,14 @@ function ProducerPage({ setSearchParams, type, genre, orderBy, sort, page }) {
         setProducerAnimes(response);
       } catch (err) {
         console.log(err);
+        handleError(err, showToast);
       } finally {
         setIsLoading(false);
       }
     }
 
     load();
-  }, [id, type, genre, orderBy, sort, page]);
+  }, [id, type, genre, orderBy, sort, page, showToast]);
 
   function handleType(newType) {
     setSearchParams({
@@ -117,10 +124,11 @@ function ProducerPage({ setSearchParams, type, genre, orderBy, sort, page }) {
               <SortFilter sort={sort} handleSort={handleSort} />
             </>
           }
-        />
+          />
         {isLoading ? <LoadingGrid /> : <AnimeGrid items={producerAnimes?.data} />}
         <Pagination animes={producerAnimes} page={page} handlePage={handlePage} />
       </section>
+      {toast && <Toast message={toast.message} />}
     </main>
   );
 }

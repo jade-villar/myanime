@@ -4,41 +4,32 @@
   gap: 10rem;
 
   padding: 170px 1rem 200px;
-
-  max-width: calc(1100px + 2rem);
   min-height: 100vh;
-  margin: 0 auto;
 }
 
 .home-page__bg {
-  height: 100vh;
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   z-index: -1;
-}
+  height: 100vh;
 
-.home-page__bg-image {
-  object-position: left;
-}
-
-.home-page__bg::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  display: block;
-  background: var(--gradient-page-bg);
+  background-color: var(--color-bg);
+  background-image: var(--gradient-page-bg), url("/myanime-bg.jpg");
+  background-position: left;
+  background-size: cover;
 }
 
 .home-page__content {
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
+
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
 
   animation-name: fade;
   animation-duration: 0.8s;

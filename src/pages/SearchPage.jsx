@@ -6,9 +6,10 @@ import TypeFilter from "../components/Filters/TypeFilter";
 import OrderByFilter from "../components/Filters/OrderByFilter";
 import SortFilter from "../components/Filters/SortFilter";
 import LoadingList from "../components/Loading/LoadingList";
+import Toast from "../components/Toast/Toast";
 import "./SearchPage.css";
 
-function SearchPage({ searchList, setSearchParams, query, type, orderBy, sort, page, isLoadingSearch }) {
+function SearchPage({ searchList, setSearchParams, query, type, orderBy, sort, page, isLoadingSearch, toast }) {
   function handleQuery(newQuery) {
     setSearchParams({
       q: newQuery,
@@ -78,6 +79,7 @@ function SearchPage({ searchList, setSearchParams, query, type, orderBy, sort, p
           <Pagination animes={searchList} page={page} handlePage={handlePage} />
         </div>
       )}
+      {toast && <Toast message={toast.message} />}
     </section>
   );
 }

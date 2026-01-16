@@ -5,10 +5,11 @@ import YearFilter from "../components/Filters/YearFilter";
 import SeasonFilter from "../components/Filters/SeasonFilter";
 import TypeFilter from "../components/Filters/TypeFilter";
 import LoadingGrid from "../components/Loading/LoadingGrid";
+import Toast from "../components/Toast/Toast";
 import capitalize from "../utils/capitalize";
 import "./SeasonPage.css";
 
-function SeasonPage({ seasonAnimes, setSearchParams, year, season, type, page, isLoadingSeason }) {
+function SeasonPage({ seasonAnimes, setSearchParams, year, season, type, page, isLoadingSeason, toast }) {
   function handleYear(newYear) {
     setSearchParams({
       type: type,
@@ -59,6 +60,7 @@ function SeasonPage({ seasonAnimes, setSearchParams, year, season, type, page, i
       />
       {isLoadingSeason ? <LoadingGrid /> : <AnimeGrid items={seasonAnimes?.data} />}
       <Pagination animes={seasonAnimes} page={page} handlePage={handlePage} />
+      {toast && <Toast message={toast.message} />}
     </main>
   );
 }

@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { getAnime, getAnimeRecommenations } from "../services/jikan";
+import { useToast } from "../hooks/useToast";
 import AnimePageHeader from "../components/AnimePage/AnimePageHeader";
 import AnimePageBody from "../components/AnimePage/AnimePageBody";
 import Modal from "../components/Modal/Modal";
+import Toast from "../components/Toast/Toast";
+import handleError from "../utils/handleError";
 import "./AnimePage.css";
 
 function AnimePage({ myList, user }) {
@@ -12,6 +15,8 @@ function AnimePage({ myList, user }) {
   const [recommendations, setRecommendations] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+
+  const { toast, showToast } = useToast();
 
   const myListItem = user
     ? myList.find((item) => item.mal_id.toString() === id)
@@ -26,13 +31,14 @@ function AnimePage({ myList, user }) {
         setAnime(response);
       } catch (err) {
         console.log(err);
+        handleError(err, showToast);
       } finally {
         setIsLoading(false);
       }
     }
 
     load();
-  }, [id]);
+  }, [id, showToast]);
 
   useEffect(() => {
     async function load() {
@@ -42,18 +48,15 @@ function AnimePage({ myList, user }) {
         setRecommendations(response);
       } catch (err) {
         console.log(err);
+        handleError(err, showToast);
       }
     }
 
     load();
-  }, [id]);
+  }, [id, showToast]);
 
   return (
     <main className="anime-page">
-      <section className="anime-page__bg">
-        <img className="anime-page__bg-image" src="/myanime-bg.jpg" />
-      </section>
-
       <AnimePageHeader
         anime={anime}
         myListItem={myListItem}
@@ -78,6 +81,10 @@ function AnimePage({ myList, user }) {
           user={user}
         />
       )}
+
+      {toast && <Toast message={toast.message} />}
+
+      <section className="anime-page__bg"></section>
     </main>
   );
 }

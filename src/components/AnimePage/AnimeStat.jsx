@@ -8,6 +8,7 @@ function AnimeStat({ label, value }) {
     value === "" ||
     value === "null" ||
     value === "#null" ||
+    value === "#undefined" ||
     value?.length === 0
       ? "N/A"
       : value;

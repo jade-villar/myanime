@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Routes, Route, useSearchParams } from "react-router";
-import { useAuth } from "./hooks/useAuth";
 import { getAnimeSearch, getTopRatedAnimes, getTopPopularAnimes, getSeasonNow, getSeasonAnimes } from "./services/jikan";
+import { useAuth } from "./hooks/useAuth";
+import { useToast } from "./hooks/useToast";
 import { handleGetMyList } from "./services/myList";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -20,6 +21,7 @@ import MissingPage from "./pages/MissingPage";
 import ScrollToTop from "./components/ScrollToTop";
 import ProtectedRoute from "./components/ProtectedRoute";
 import getSeason from "./utils/getSeason";
+import handleError from "./utils/handleError";
 import "./App.css";
 
 function App() {
@@ -53,6 +55,8 @@ function App() {
   const [isLoadingSeason, setIsLoadingSeason] = useState(false);
   const [isLoadingTopPopular, setIsLoadingTopPopular] = useState(false);
 
+  const { toast, showToast } = useToast();
+
   useEffect(() => {
     getSeason();
   }, []);
@@ -81,13 +85,14 @@ function App() {
         setSearchList(response);
       } catch (err) {
         console.log(err);
+        handleError(err, showToast);
       } finally {
         setIsLoadingSearch(false);
       }
     }
 
     load();
-  }, [query, type, orderByPopularity, sortAsc, page]);
+  }, [query, type, orderByPopularity, sortAsc, page, showToast]);
 
   useEffect(() => {
     async function load() {
@@ -102,13 +107,14 @@ function App() {
         setTopRatedAnimes(response);
       } catch (err) {
         console.log(err);
+        handleError(err, showToast);
       } finally {
         setIsLoadingTopRated(false);
       }
     }
 
     load();
-  }, [type, genre, sortDesc, page]);
+  }, [type, genre, sortDesc, page, showToast]);
 
   useEffect(() => {
     async function load() {
@@ -118,13 +124,14 @@ function App() {
         setAiringAnimes(response);
       } catch (err) {
         console.log(err);
+        handleError(err, showToast);
       } finally {
         setIsLoadingAiring(false);
       }
     }
 
     load();
-  }, [type, page]);
+  }, [type, page, showToast]);
 
   useEffect(() => {
     async function load() {
@@ -134,13 +141,14 @@ function App() {
         setSeasonAnimes(response);
       } catch (err) {
         console.log(err);
+        handleError(err, showToast);
       } finally {
         setIsLoadingSeason(false);
       }
     }
 
     load();
-  }, [type, year, season, page]);
+  }, [type, year, season, page, showToast]);
 
   useEffect(() => {
     async function load() {
@@ -157,13 +165,14 @@ function App() {
         setTopPopularAnimes(response);
       } catch (err) {
         console.log(err);
+        handleError(err, showToast);
       } finally {
         setIsLoadingTopPopular(false);
       }
     }
 
     load();
-  }, [type, genre, sortAsc, startDate, endDate, page]);
+  }, [type, genre, sortAsc, startDate, endDate, page, showToast]);
 
   return (
     <>
@@ -182,6 +191,7 @@ function App() {
               isLoadingAiring={isLoadingAiring}
               isLoadingSeason={isLoadingSeason}
               isLoadingTopPopular={isLoadingTopPopular}
+              toast={toast}
             />
           }
         />
@@ -197,6 +207,7 @@ function App() {
               sort={sortAsc}
               page={page}
               isLoadingSearch={isLoadingSearch}
+              toast={toast}
             />
           }
         />
@@ -215,6 +226,7 @@ function App() {
               sort={sortDesc}
               page={page}
               isLoadingTopRated={isLoadingTopRated}
+              toast={toast}
             />
           }
         />
@@ -227,6 +239,7 @@ function App() {
               type={type}
               page={page}
               isLoadingAiring={isLoadingAiring}
+              toast={toast}
             />
           }
         />
@@ -241,6 +254,7 @@ function App() {
               type={type}
               page={page}
               isLoadingSeason={isLoadingSeason}
+              toast={toast}
             />
           }
         />
@@ -257,6 +271,7 @@ function App() {
               sort={sortAsc}
               page={page}
               isLoadingTopPopular={isLoadingTopPopular}
+              toast={toast}
             />
           }
         />

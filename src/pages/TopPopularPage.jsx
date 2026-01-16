@@ -6,10 +6,11 @@ import TypeFilter from "../components/Filters/TypeFilter";
 import GenreFilter from "../components/Filters/GenreFilter";
 import SortFilter from "../components/Filters/SortFilter";
 import LoadingGrid from "../components/Loading/LoadingGrid";
+import Toast from "../components/Toast/Toast";
 import "./TopPopularPage.css";
 
 function TopPopularPage({ topPopularAnimes, setSearchParams, startDate, endDate,
-  type, genre, sort, page, isLoadingTopPopular,
+  type, genre, sort, page, isLoadingTopPopular, toast,
 }) {
   function handleYear(newYear) {
     setSearchParams({
@@ -78,9 +79,10 @@ function TopPopularPage({ topPopularAnimes, setSearchParams, startDate, endDate,
             <SortFilter sort={sort} handleSort={handleSort} />
           </>
         }
-      />
+        />
       {isLoadingTopPopular ? <LoadingGrid /> : <AnimeGrid items={topPopularAnimes?.data} />}
       <Pagination animes={topPopularAnimes} page={page} handlePage={handlePage} />
+      {toast && <Toast message={toast.message} />}
     </main>
   );
 }

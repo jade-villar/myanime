@@ -5,9 +5,10 @@ import TypeFilter from "../components/Filters/TypeFilter";
 import GenreFilter from "../components/Filters/GenreFilter";
 import SortFilter from "../components/Filters/SortFilter";
 import LoadingList from "../components/Loading/LoadingList";
+import Toast from "../components/Toast/Toast";
 import "./TopRatedPage.css";
 
-function TopRatedPage({ topRatedAnimes, setSearchParams, type, genre, sort, page, isLoadingTopRated }) {
+function TopRatedPage({ topRatedAnimes, setSearchParams, type, genre, sort, page, isLoadingTopRated, toast }) {
   function handleType(newType) {
     setSearchParams({
       type: newType,
@@ -58,6 +59,7 @@ function TopRatedPage({ topRatedAnimes, setSearchParams, type, genre, sort, page
       />
       {isLoadingTopRated ? <LoadingList /> : <AnimeList items={topRatedAnimes?.data} />}
       <Pagination animes={topRatedAnimes} page={page} handlePage={handlePage} />
+      {toast && <Toast message={toast.message} />}
     </main>
   );
 }

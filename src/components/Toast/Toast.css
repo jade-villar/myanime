@@ -1,0 +1,40 @@
+.toast {
+  position: fixed;
+  top: 1.35rem;
+  left: 1rem;
+  right: 1rem;
+  z-index: 200;
+
+  display: grid;
+  place-content: center;
+  background-color: rgb(254, 202, 202);
+  border: 1px solid var(--error);
+  height: 50px;
+  max-width: 500px;
+  padding: 0 1rem;
+  margin: 0 auto;
+
+  animation-name: slideIn;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+}
+
+.toast__message {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--error);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
