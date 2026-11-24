@@ -1,24 +1,24 @@
 import axios from "axios";
 
-const JIKAN_BASE_URL = "https://api.jikan.moe/v4";
+const TENRAI_BASE_URL = "https://api.tenrai.org/v1";
 
 export async function getAnime(id) {
-  const response = await axios.get(`${JIKAN_BASE_URL}/anime/${id}/full`);
+  const response = await axios.get(`${TENRAI_BASE_URL}/anime/${id}/full`);
   return response.data;
 }
 
 export async function getAnimeRecommenations(id) {
-  const response = await axios.get(`${JIKAN_BASE_URL}/anime/${id}/recommendations`);
+  const response = await axios.get(`${TENRAI_BASE_URL}/anime/${id}/recommendations`);
   return response.data;
 }
 
 export async function getProducer(id) {
-  const response = await axios.get(`${JIKAN_BASE_URL}/producers/${id}`);
+  const response = await axios.get(`${TENRAI_BASE_URL}/producers/${id}`);
   return response.data;
 }
 
 export async function getProducerAnimes({ id, type, genre, orderBy, sort, page }) {
-  const response = await axios.get(`${JIKAN_BASE_URL}/anime`, {
+  const response = await axios.get(`${TENRAI_BASE_URL}/anime`, {
     params: {
       producers: id,
       type: type,
@@ -38,7 +38,7 @@ export async function getAnimeSearch({ query, type, orderByPopularity, sortAsc, 
     return;
   }
 
-  const response = await axios.get(`${JIKAN_BASE_URL}/anime`, {
+  const response = await axios.get(`${TENRAI_BASE_URL}/anime`, {
     params: {
       sfw: true,
       q: query,
@@ -54,7 +54,7 @@ export async function getAnimeSearch({ query, type, orderByPopularity, sortAsc, 
 }
 
 export async function getTopRatedAnimes({ type, genre, sortDesc, page }) {
-  const response = await axios.get(`${JIKAN_BASE_URL}/anime`, {
+  const response = await axios.get(`${TENRAI_BASE_URL}/anime`, {
     params: {
       sfw: true,
       type: type,
@@ -78,7 +78,7 @@ export async function getTopPopularAnimes({ startDate, endDate, type, genre, sor
   if (startDate) finalStartDate = `${startDate}-01-01`;
   if (endDate) finalEndDate = `${endDate}-06-30`;
 
-  const response = await axios.get(`${JIKAN_BASE_URL}/anime`, {
+  const response = await axios.get(`${TENRAI_BASE_URL}/anime`, {
     params: {
       sfw: true,
       order_by: "popularity",
@@ -96,7 +96,7 @@ export async function getTopPopularAnimes({ startDate, endDate, type, genre, sor
 }
 
 export async function getSeasonNow({ type, page }) {
-  const response = await axios.get(`${JIKAN_BASE_URL}/seasons/now`, {
+  const response = await axios.get(`${TENRAI_BASE_URL}/seasons/now`, {
     params: {
       sfw: true,
       continuing: true,
@@ -110,7 +110,7 @@ export async function getSeasonNow({ type, page }) {
 }
 
 export async function getSeasonAnimes({ year, season, type, page }) {
-  const response = await axios.get(`${JIKAN_BASE_URL}/seasons/${year}/${season}`, {
+  const response = await axios.get(`${TENRAI_BASE_URL}/seasons/${year}/${season}`, {
     params: {
       sfw: true,
       filter: type,
