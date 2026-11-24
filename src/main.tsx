@@ -2,11 +2,11 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router";
 import { Analytics } from "@vercel/analytics/react";
-import { AuthProvider } from "./context/AuthProvider.jsx";
-import App from "./App.jsx";
+import { AuthProvider } from "./context/AuthProvider";
+import App from "./App";
 import "./index.css";
 
-createRoot(document.getElementById("root")).render(
+createRoot(document.getElementById("root") as HTMLElement).render(
   <StrictMode>
     <AuthProvider>
       <BrowserRouter>
@@ -14,5 +14,5 @@ createRoot(document.getElementById("root")).render(
         <Analytics />
       </BrowserRouter>
     </AuthProvider>
-  </StrictMode>
+  </StrictMode>,
 );

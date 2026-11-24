@@ -2,7 +2,7 @@ import { collection, doc, onSnapshot, addDoc, updateDoc, deleteDoc,
   serverTimestamp, query, orderBy } from "firebase/firestore";
 import { db } from "../firebase";
 
-export function handleGetMyList(userId, setMyList) {
+export function handleGetMyList(userId: string, setMyList) {
   const colRef = collection(db, "users", userId, "myList");
   const q = query(colRef, orderBy("createdAt", "desc"));
 
@@ -12,7 +12,7 @@ export function handleGetMyList(userId, setMyList) {
   });
 }
 
-export function handlePostToMyList(userId, anime) {
+export function handlePostToMyList(userId: string, anime) {
   const colRef = collection(db, "users", userId, "myList");
 
   return addDoc(colRef, {
@@ -27,12 +27,12 @@ export function handlePostToMyList(userId, anime) {
   });
 }
 
-export function handleUpdateMyList(userId, id, updates) {
+export function handleUpdateMyList(userId: string, id: string, updates) {
   const docRef = doc(db, "users", userId, "myList", id);
   return updateDoc(docRef, updates);
 }
 
-export function handleDeleteFromMyList(userId, id) {
+export function handleDeleteFromMyList(userId: string, id: string) {
   const docRef = doc(db, "users", userId, "myList", id);
   return deleteDoc(docRef);
 }

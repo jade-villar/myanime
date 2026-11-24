@@ -1,4 +1,4 @@
-function joinList(list) {
+function joinList(list: string[]) {
   if (list) {
     return list.map((item) => item).join(", ");
   } else {

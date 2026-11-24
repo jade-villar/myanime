@@ -1,9 +1,13 @@
 import { useCallback, useState } from "react";
 
-export function useToast() {
-  const [toast, setToast] = useState(null);
+type Toast = {
+  message: string;
+};
 
-  const showToast = useCallback((message) => {
+export function useToast() {
+  const [toast, setToast] = useState<Toast | null>(null);
+
+  const showToast = useCallback(({ message }: Toast): void => {
     setToast({ message });
 
     setTimeout(() => {

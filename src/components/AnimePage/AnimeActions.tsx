@@ -1,6 +1,5 @@
 import { Link, useNavigate } from "react-router";
-import { handlePostToMyList } from "../../services/myList";
-import { handleDeleteFromMyList } from "../../services/myList";
+import { handleDeleteFromMyList, handlePostToMyList } from "@/services/myList";
 import "./AnimeActions.css";
 
 function AnimeActions({ anime, myListItem, user }) {

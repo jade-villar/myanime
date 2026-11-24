@@ -1,4 +1,4 @@
-function handleError(err, showToast) {
+function handleError(err, showToast: (message: string) => void) {
   switch (err.status) {
     case 404:
       showToast("Content not found.");

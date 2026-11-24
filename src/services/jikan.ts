@@ -2,22 +2,38 @@ import axios from "axios";
 
 const TENRAI_BASE_URL = "https://api.tenrai.org/v1";
 
-export async function getAnime(id) {
+export async function getAnime(id: string) {
   const response = await axios.get(`${TENRAI_BASE_URL}/anime/${id}/full`);
   return response.data;
 }
 
-export async function getAnimeRecommenations(id) {
-  const response = await axios.get(`${TENRAI_BASE_URL}/anime/${id}/recommendations`);
+export async function getAnimeRecommenations(id: string) {
+  const response = await axios.get(
+    `${TENRAI_BASE_URL}/anime/${id}/recommendations`,
+  );
   return response.data;
 }
 
-export async function getProducer(id) {
+export async function getProducer(id: string) {
   const response = await axios.get(`${TENRAI_BASE_URL}/producers/${id}`);
   return response.data;
 }
 
-export async function getProducerAnimes({ id, type, genre, orderBy, sort, page }) {
+export async function getProducerAnimes({
+  id,
+  type,
+  genre,
+  orderBy,
+  sort,
+  page,
+}: {
+  id: string;
+  type: string;
+  genre: string;
+  orderBy: string;
+  sort: string;
+  page: string;
+}) {
   const response = await axios.get(`${TENRAI_BASE_URL}/anime`, {
     params: {
       producers: id,
@@ -33,7 +49,19 @@ export async function getProducerAnimes({ id, type, genre, orderBy, sort, page }
   return response.data;
 }
 
-export async function getAnimeSearch({ query, type, orderByPopularity, sortAsc, page }) {
+export async function getAnimeSearch({
+  query,
+  type,
+  orderByPopularity,
+  sortAsc,
+  page,
+}: {
+  query: string;
+  type: string;
+  orderByPopularity: string;
+  sortAsc: string;
+  page: string;
+}) {
   if (query === "") {
     return;
   }
@@ -53,7 +81,17 @@ export async function getAnimeSearch({ query, type, orderByPopularity, sortAsc, 
   return response.data;
 }
 
-export async function getTopRatedAnimes({ type, genre, sortDesc, page }) {
+export async function getTopRatedAnimes({
+  type,
+  genre,
+  sortDesc,
+  page,
+}: {
+  type: string;
+  genre: string;
+  sortDesc: string;
+  page: string;
+}) {
   const response = await axios.get(`${TENRAI_BASE_URL}/anime`, {
     params: {
       sfw: true,
@@ -67,11 +105,25 @@ export async function getTopRatedAnimes({ type, genre, sortDesc, page }) {
       limit: 10,
     },
   });
-  
+
   return response.data;
 }
 
-export async function getTopPopularAnimes({ startDate, endDate, type, genre, sortAsc, page }) {
+export async function getTopPopularAnimes({
+  startDate,
+  endDate,
+  type,
+  genre,
+  sortAsc,
+  page,
+}: {
+  startDate: string;
+  endDate: string;
+  type: string;
+  genre: string;
+  sortAsc: string;
+  page: string;
+}) {
   let finalStartDate = "";
   let finalEndDate = "";
 
@@ -95,7 +147,13 @@ export async function getTopPopularAnimes({ startDate, endDate, type, genre, sor
   return response.data;
 }
 
-export async function getSeasonNow({ type, page }) {
+export async function getSeasonNow({
+  type,
+  page,
+}: {
+  type: string;
+  page: string;
+}) {
   const response = await axios.get(`${TENRAI_BASE_URL}/seasons/now`, {
     params: {
       sfw: true,
@@ -109,15 +167,28 @@ export async function getSeasonNow({ type, page }) {
   return response.data;
 }
 
-export async function getSeasonAnimes({ year, season, type, page }) {
-  const response = await axios.get(`${TENRAI_BASE_URL}/seasons/${year}/${season}`, {
-    params: {
-      sfw: true,
-      filter: type,
-      page: page,
-      limit: 25,
+export async function getSeasonAnimes({
+  year,
+  season,
+  type,
+  page,
+}: {
+  year: string;
+  season: string;
+  type: string;
+  page: string;
+}) {
+  const response = await axios.get(
+    `${TENRAI_BASE_URL}/seasons/${year}/${season}`,
+    {
+      params: {
+        sfw: true,
+        filter: type,
+        page: page,
+        limit: 25,
+      },
     },
-  });
+  );
 
   return response.data;
 }

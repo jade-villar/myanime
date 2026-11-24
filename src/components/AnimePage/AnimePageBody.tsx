@@ -1,9 +1,10 @@
+
 import MyListActions from "../MyListPage/MyListActions";
+import AnimeRecommendations from "./AnimeRecommendations";
+import AnimeRelations from "./AnimeRelations";
 import AnimeStats from "./AnimeStats";
 import AnimeSynopsis from "./AnimeSynopsis";
 import AnimeTrailer from "./AnimeTrailer";
-import AnimeRelations from "./AnimeRelations";
-import AnimeRecommendations from "./AnimeRecommendations";
 import "./AnimePageBody.css";
 
 function AnimePageBody({ anime, recommendations, myListItem, setIsOpen }) {
